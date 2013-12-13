@@ -4,16 +4,6 @@ reverse DNS lookup CLU for standard output
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'reverse'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install reverse
 
 ## Usage
