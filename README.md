@@ -1,6 +1,6 @@
 # Reverse
 
-TODO: Write a gem description
+reverse DNS lookup CLU for standard output
 
 ## Installation
 
@@ -18,7 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ tail -f /var/log/maillog | reverse
+    $ grep Accepted /var/log/secure | reverse
 
 ## Contributing
 
