@@ -1,6 +1,6 @@
 require "reverse/version"
-
 require 'socket'
+require "term/ansicolor"
 
 class Reverse
   ADDR_REG_EXP = /\b((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))\b/
@@ -25,6 +25,7 @@ class Reverse
   private
 
   def replace_addr(line)
+    color = Term::ANSIColor
     line.gsub(ADDR_REG_EXP) do |addr|
       name = nil
       if @list[addr]
@@ -33,7 +34,7 @@ class Reverse
         name = get_name(addr)
         @list[addr] = name
       end
-      name
+      color.green + name + color.clear
     end
   end
 
