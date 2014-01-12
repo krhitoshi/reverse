@@ -7,6 +7,7 @@ class Reverse
 
   def initialize
     @list = {}
+    Signal.trap(:INT){ exit(0) }
   end
 
   def exec
