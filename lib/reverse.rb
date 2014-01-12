@@ -1,5 +1,5 @@
 require "reverse/version"
-require 'socket'
+require "socket"
 require "term/ansicolor"
 
 class Reverse
@@ -39,11 +39,8 @@ class Reverse
   end
 
   def get_name(addr)
-    info = Socket.getnameinfo(Socket.sockaddr_in('80', addr))
+    info = Socket.getnameinfo(Socket.sockaddr_in("80", addr))
     info[0]
   end
 
 end
-
-
-

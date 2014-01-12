@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Reverse::VERSION
   spec.authors       = ["Hitoshi Kurokawa"]
   spec.email         = ["hitoshi@nextseed.jp"]
-  spec.description   = %q{reverse DNS lookup CLU for standard output}
-  spec.summary       = %q{reverse DNS lookup CLU for standard output}
+  spec.description   = %q{reverse DNS lookup CLI for standard output}
+  spec.summary       = %q{reverse DNS lookup CLI for standard output}
   spec.homepage      = "https://github.com/krhitoshi/reverse"
   spec.license       = "MIT"
 
