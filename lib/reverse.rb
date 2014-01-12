@@ -11,23 +11,30 @@ class Reverse
 
   def exec
     while line = gets
-      if line =~ ADDR_REG_EXP
-        res = line.gsub(ADDR_REG_EXP) do |addr|
-          name = nil
-          if @list[addr]
-            name = @list[addr]
-          else
-            name = get_name(addr)
-            @list[addr] = name
-          end
-          name
+      output =
+        if line =~ ADDR_REG_EXP
+          replace_addr(line)
+        else
+          line
         end
-        print res
-      end
+      print output
     end
   end
 
   private
+
+  def replace_addr(line)
+    line.gsub(ADDR_REG_EXP) do |addr|
+      name = nil
+      if @list[addr]
+        name = @list[addr]
+      else
+        name = get_name(addr)
+        @list[addr] = name
+      end
+      name
+    end
+  end
 
   def get_name(addr)
     info = Socket.getnameinfo(Socket.sockaddr_in('80', addr))
