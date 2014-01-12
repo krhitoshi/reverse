@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/reverse.png)](http://badge.fury.io/rb/reverse)
+
 # Reverse
 
 reverse DNS lookup CLI for standard output
