@@ -2,6 +2,7 @@ require "reverse/version"
 require "socket"
 require "term/ansicolor"
 require "resolv"
+require "optparse"
 
 class Reverse
   ADDR_REG_EXP = /\b((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))\b/
@@ -9,10 +10,15 @@ class Reverse
   def initialize
     @resolv = Resolv::DNS.new(nameserver: ["8.8.8.8", "8.8.4.4"], ndots: 1)
     @list = {}
+    @options = {color: true}
     Signal.trap(:INT){ exit(0) }
   end
 
-  def exec
+  def exec(argv)
+    opt = OptionParser.new
+    opt.on('--no-color',  'No Color Mode') {|v| @options[:color] = v }
+    opt.parse!(argv)
+
     while line = gets
       output =
         if line =~ ADDR_REG_EXP
@@ -36,7 +42,11 @@ class Reverse
         name = get_name(addr)
         @list[addr] = name
       end
-      color.green + name + color.clear
+      if @options[:color]
+        color.green + name + color.clear
+      else
+        name
+      end
     end
   end
 

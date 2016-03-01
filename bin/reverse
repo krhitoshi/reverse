@@ -4,4 +4,4 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 require 'rubygems'
 require 'reverse'
 
-Reverse.new.exec
+Reverse.new.exec(ARGV)
