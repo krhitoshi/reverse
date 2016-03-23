@@ -16,9 +16,16 @@ class Reverse
 
   def exec(argv)
     opt = OptionParser.new
+    opt.on('-V', '--verion',   'Show version number and quit') {|v| @options[:verion] = v }
     opt.on('-v', '--verbose',  'Verbose Mode (IP Address with reverse DNS)') {|v| @options[:verbose] = v }
     opt.on('--no-color',  'No Color Mode') {|v| @options[:color] = v }
     opt.parse!(argv)
+
+    if @options[:verion]
+      name = File.basename($PROGRAM_NAME)
+      puts "#{name} #{VERSION}"
+      exit
+    end
 
     while line = gets
       output =
