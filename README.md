@@ -19,5 +19,5 @@ Usage: reverse [options]
 
     $ cat /var/log/maillog | reverse
     $ tail -f /var/log/maillog | reverse
-    $ grep Accepted /var/log/secure | reverse -V
+    $ grep Accepted /var/log/secure | reverse -v
 
