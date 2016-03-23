@@ -16,7 +16,7 @@ class Reverse
 
   def exec(argv)
     opt = OptionParser.new
-    opt.on('--verbose',  'Verbose Mode (IP Address with reverse DNS)') {|v| @options[:verbose] = v }
+    opt.on('-v', '--verbose',  'Verbose Mode (IP Address with reverse DNS)') {|v| @options[:verbose] = v }
     opt.on('--no-color',  'No Color Mode') {|v| @options[:color] = v }
     opt.parse!(argv)
 
