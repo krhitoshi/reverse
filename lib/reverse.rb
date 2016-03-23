@@ -51,7 +51,11 @@ class Reverse
         @list[addr] = name
       end
       if @options[:verbose]
-        str = "#{addr},#{name}"
+        if name == addr
+          str = "unknown[#{addr}]"
+        else
+          str = "#{name}[#{addr}]"
+        end
       else
         str = name
       end
